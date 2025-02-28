@@ -8,16 +8,12 @@ const GEO_API_OPTIONS = {
 };
 
 export async function fetchCities(input) {
-  console.log("GEO_API_URL",import.meta.env);
-  
   try {
     const response = await fetch(
       `${GEO_API_URL}/cities?minPopulation=10000&namePrefix=${input}`,
       GEO_API_OPTIONS
     );
     const data = await response.json();
-    console.log("data", data);
-    
     return data;
   } catch (error) {
     console.log(error);
